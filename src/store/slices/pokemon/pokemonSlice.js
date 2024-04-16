@@ -12,9 +12,11 @@ export const pokemonSlice = createSlice({
       state.isLoading = true;
     },
     setPokemons: (state, action) => {
-      console.log(action);
+      state.isLoading = false;
+      state.page = action.payload.page;
+      state.pokemon = action.payload.pokemons;
     },
   },
 });
 
-export const { increment, startLoadingPokemons, setPokemons } = pokemonSlice.actions;
+export const { startLoadingPokemons, setPokemons } = pokemonSlice.actions;
